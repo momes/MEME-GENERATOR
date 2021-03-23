@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="./main.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@1,200&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@600&display=swap" rel="stylesheet">
+    <title>Meme Generator</title>
+</head>
+
+<body>
+    <div id="app-container" class="container-fluid">
+        <div id="app-row" class="row">
+            <div class="col-12 col-md-4">
+                <div id="form-container" class="container container-fluid sticky-top">
+                    <h1>Meme Generator</h1>
+                    <form id="meme-form">
+                        <div id="step-one">
+                            <h2><span class="badge">1</span> Enter an image link</h2>
+                            <input name="link" id="image-link" type="url" placeholder="www.yourimagelink.com">
+                            <h3 class="warning" id="url-warning" style="display: none;">Image URL is required</h3>
+                        </div>
+                        <div id="step-two">
+                            <h2><span class="badge">2</span> Add your text</h2>
+                            <div class="container container-fluid">
+                                <div id="text-input-container" class="container flex-container tile">
+                                    <input name="toptext" id="top-text" type="text" placeholder="Your Top Text Here">
+
+                                    <input name="bottomtext" id="bottom-text" type="text"
+                                        placeholder="Your Bottom Text Here">
+                                </div>
+                            </div>
+                            <h3 class="warning" id="text-warning" style="display: none;">At Least 1 Line of Text
+                                Required</h3>
+
+                        </div>
+                        <input type="submit" id="submitButton">
+                    </form>
+
+                </div>
+            </div>
+            <div class="col-12 col-md-7">
+                <div id="memes-container" class="container container-fluid">
+                    <ul id="meme-list">
+                        <div class="meme-div"
+                            style="background-image: url('https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/womanyellingcat-1573233850.jpg?resize=768:*');">
+                            <div class="meme-top">
+                                <h5>your memes will show up here</h5>
+                            </div>
+                            <div class="meme-bottom">
+                                <h5>hover over me to delete</h5>
+                            </div>
+                            <input type="button" class="delete">
+
+                        </div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const memeList = document.getElementById('meme-list');
+        const form = document.getElementById('meme-form');
+
+        memeList.addEventListener('click', findParent, false);
+
+        function findParent(e) {
+            if (e.target.classList.contains("delete")) {
+                e.preventDefault();
+                removeMeme(e.target);
+            }
+        }
+
+        function removeMeme(button) {
+            var targetMeme = button.parentNode;
+            if (targetMeme) {
+                targetMeme.parentNode.removeChild(targetMeme);
+            }
+        }
+
+
+
+        function createMemeDiv(link, toptext, bottomtext) {
+
+            var listNode = document.createElement("LI");
+            listNode.innerHTML = '<div class="meme-div" style="background-image: url(' + link + ');"> <div class="meme-top"><h5>' + toptext + '</h5> </div> <div class="meme-bottom"> <h5>' + bottomtext + '</h5> </div><input type="button" class="tile delete"></div>'
+
+            memeList.appendChild(listNode);
+            console.log('newMeme li created')
+
+        }
+
+
+
+        form.addEventListener('submit', function (e) {
+            console.log('Form Submitted')
+            const linkInput = document.querySelector('input[name="link"]');
+            const topTextInput = document.querySelector('input[name="toptext"]');
+            const bottomTextInput = document.querySelector('input[name="bottomtext"]');
+            const warning = document.getElementById('text-warning');
+            const linkwarning = document.getElementById('url-warning');
+            console.log('image link --->', linkInput.value);
+            console.log('top text input --->', topTextInput.value);
+            console.log('bottom text input --->', bottomTextInput.value);
+            if ((linkInput.value === '')) {
+                console.log('ERROR: link not entered');
+                linkwarning.style = "display: block;";
+            }
+            if (topTextInput.value === '' && bottomTextInput.value === '') {
+                console.log('ERROR: no text entered');
+                warning.style = "display: block;";
+            }
+            else {
+                warning.style = "display: none;";
+                linkwarning.style = "display: none;";
+                console.log('Creating meme-div with --->', linkInput.value, topTextInput.value, bottomTextInput.value);
+                createMemeDiv(linkInput.value, topTextInput.value, bottomTextInput.value)
+                linkInput.value = "";
+                topTextInput.value = "";
+                bottomTextInput.value = "";
+
+            }
+            e.preventDefault();
+        });
+
+
+    </script>
+</body>
+
+</html>
+
+
+<!--
+https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/womanyellingcat-1573233850.jpg?resize=768:*
+-->

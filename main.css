@@ -1,0 +1,254 @@
+body {
+    background-image: url('./background.png');
+    background-size: 37%;
+    background-position: center;
+    color: white;
+    justify-content: flex-start;
+}
+
+#app-container {
+    padding-top: 5vh;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#step-one {
+    margin: 5% auto;
+    max-width: 90%;
+}
+
+#step-two {
+    margin: 5% auto;
+    max-width: 90%;
+}
+
+#image-link {
+    width: 90%;
+    margin: 2% auto;
+    margin-left: 5%;
+    overflow: hidden;
+}
+
+#form-container {
+    background: rgba(5, 16, 77, 0.90);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.0px );
+    -webkit-backdrop-filter: blur( 10.0px );
+    border-radius: 10px;
+    padding-top: 5%;
+    padding-bottom: 8%;
+    margin-bottom: 5%;
+    min-width: 350px;
+    overflow: hidden;
+}
+
+#memes-container {
+    background: rgba(255, 255, 255, 0.651);
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 2.0px );
+    -webkit-backdrop-filter: blur( 10.0px );
+    border-radius: 10px;
+    border: 1px solid rgba( 25 5, 255, 255, 0.18 );
+    min-height: 50vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: auto;
+    align-items: center;
+    padding-top: 5vh;
+    padding-left: auto;
+    padding-right: auto;
+
+}
+h1 {
+    font-family: 'Roboto Mono', monospace;
+    -webkit-text-stroke-width: 2px;
+    -webkit-text-stroke-color: none;
+    text-align: center;
+    line-height: 90%;
+    letter-spacing: 0.1em;
+} 
+h2 {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1.5em;
+    white-space: nowrap;
+    overflow: hidden;
+    vertical-align: text-bottom
+}
+h3 {
+    font-family: 'Noto Sans', sans-serif;
+}
+.badge {
+    background: white;
+    color: black;
+    font-weight:bolder;
+}
+h5 {
+    font-size: 2.5em;
+    font-family: 'Oswald', sans-serif;
+    -webkit-text-stroke-color: black;
+    -webkit-text-stroke-width: 2px;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.warning {
+    font-size:small;
+    color: red;
+    margin-top: .5em;
+}
+
+
+#text-input-container {
+    position: relative;
+    min-height:30vh;
+    max-height:40vh;
+    text-align: center;
+    border-style: dashed;
+    border-color: white;
+    padding-top: 4%;
+    overflow:hidden;
+    
+}
+
+#top-text {
+    position: absolute;
+    top: 2%;
+    align-self:center;
+
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    align-content: center;
+    margin-bottom: 0px;
+
+    overflow: hidden;
+
+}
+#bottom-text{
+    position: absolute;
+    bottom: 10px;
+
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+      text-align: center;
+      align-content: center;
+
+    overflow: hidden;
+}
+ul {
+    justify-content: center;
+}
+li {
+    list-style: none;
+    align-self: center;
+}
+
+.meme-top {
+    display: block;
+    position: absolute;
+    top: 2%;
+    align-self:center;
+    left: 0; 
+    right: 0; 
+    margin-left: auto; 
+    margin-right: auto; 
+    text-align: center;
+    align-content: center;
+    margin-bottom: 0px;
+
+    overflow: hidden;
+}
+
+.meme-bottom {
+    position: absolute;
+    bottom: 10px;
+
+  left: 0; 
+  right: 0; 
+  margin-left: auto; 
+  margin-right: auto; 
+    text-align: center;
+    align-content: center;
+
+    overflow: hidden;
+
+}
+#meme-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  margin-right: -10px;
+  padding-right: -10px;
+  margin: 5% auto;
+}
+.meme-div {
+    position: relative;
+    padding-bottom: 2px;
+    text-align: center;
+    align-content: center;
+    padding-left: 3vw;
+    padding-right: 3vw;
+    margin-right: 5vw;
+    margin-bottom: 5vw;
+    text-align: center;
+    display: block;
+    background-size: 100%;
+    background-position: center;
+    min-height: 60vh;
+    min-width: 60vh;
+    max-height: 60vh;
+    max-height: 60vh;
+    align-self: center;
+
+box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+border-spacing: 5px;
+}
+
+
+
+.delete {
+    overflow:visible;
+    display: none;
+    position: absolute;
+    margin-top: 35%;
+    margin-left: 25%;
+background-image: url('./delete-512.png');
+width: 40%;
+min-height: 30%;
+height: 30%;
+background-position: center;
+background-size: 40%;
+background-repeat: no-repeat;
+background-color: white;
+border-radius: 10px;
+}
+
+
+.hover {
+    overflow: visible;
+    display: flex;
+    position: relative;
+    margin-top: 40%;
+    min-width: 100%;
+    min-height: 80%;
+
+
+
+}
+.meme-div:hover {
+    opacity: 0.8;
+    
+  }
+.meme-div:hover .delete {
+    opacity: 1.0;
+    display: flex;
+}
+
